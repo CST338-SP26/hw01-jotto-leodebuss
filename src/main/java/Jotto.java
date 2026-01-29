@@ -6,6 +6,9 @@ import java.util.ArrayList;
  * @Since 1/29/26
  **/
 public class Jotto {
+    public Jotto(String temp3) {
+
+    }
     private int WORD_SIZE;
     private int score;
     private boolean DEBUG;
