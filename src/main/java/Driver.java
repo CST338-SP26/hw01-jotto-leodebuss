@@ -11,23 +11,23 @@ public class Driver {
 //        String filepath = "debug.txt";
 //        String filepath = "wordList.txt";
         Jotto game = new Jotto(filepath);
-//        game.play();
+        game.play();
 
 
-        ArrayList<String> strings = new ArrayList<>();
-        strings.add("hello");
-        strings.add("there");
-        strings.add("general");
-
-        System.out.println(strings);
-
-        for( String s : strings){
-            System.out.println("In the for loop");
-            System.out.println("value is : " + s);
-        }
-
-        System.out.println(game.readWords());
-        System.out.println(game.readWords());
-        game.updateWordList();
+//        ArrayList<String> strings = new ArrayList<>();
+//        strings.add("hello");
+//        strings.add("there");
+//        strings.add("general");
+//
+//        System.out.println(strings);
+//
+//        for( String s : strings){
+//            System.out.println("In the for loop");
+//            System.out.println("value is : " + s);
+//        }
+//
+//        System.out.println(game.readWords());
+//        System.out.println(game.readWords());
+//        game.updateWordList();
     }
 }
