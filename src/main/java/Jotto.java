@@ -25,6 +25,8 @@ public class Jotto {
     private int score = 0;
 
     // implementations
+
+    // Selects a random unused word
     public boolean pickWord() {
         if (playWords.size() == wordList.size()) {
             System.out.println("You've guessed them all!");
@@ -41,6 +43,8 @@ public class Jotto {
         }
         return true;
     }
+
+    // Returns formatted list of available words
     public String showWordList() {
         StringBuilder sb = new StringBuilder("Current word list:\n");
         for (String word : wordList) {
@@ -49,6 +53,7 @@ public class Jotto {
         return sb.toString();
     }
 
+    // Shows player guesses and optionally updates file
     public ArrayList<String> showPlayerGuesses() {
         Scanner scan = new Scanner(System.in);
         if (playGuesses.isEmpty()) {
@@ -68,13 +73,8 @@ public class Jotto {
         }
         return playGuesses;
     }
-//    void playerGuessScores(ArrayList<String> playGuesses) {
-//
-//    }
-//    public void setCurrentWord(String currentWord) {
-//
-//    }
 
+    // Reads words from file into wordList (no duplicates)
     public ArrayList<String> readWords() {
         try {
             File file = new File(filename);
@@ -92,6 +92,8 @@ public class Jotto {
         }
         return wordList;
     }
+
+    // Main menu loop for the game
     public void play() {
         Scanner scan = new Scanner(System.in);
         String input;
@@ -136,6 +138,8 @@ public class Jotto {
             System.out.println();
         }
     }
+
+    // Handles one round of guessing
     public int guess() {
         ArrayList<String> currentGuesses = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
@@ -176,13 +180,7 @@ public class Jotto {
         return roundScore;
     }
 
-//    public ArrayList<String> getPlayWords() {
-//
-//    }
-//
-//    public String getCurrentWord() {
-//
-//    }
+    // Returns number of matching unique letters
     public int getLetterCount(String wordGuess) {
         if (wordGuess.equals(currentWord)) {
             return WORD_SIZE;
@@ -203,6 +201,8 @@ public class Jotto {
         }
         return count;
     }
+
+    // Returns formatted list of words already played
     public String showPlayedWords() {
         if (playWords.isEmpty()) {
             return "No words have been played";
@@ -213,6 +213,8 @@ public class Jotto {
         }
         return sb.toString();
     }
+
+    // Adds guess if not already stored
     public boolean addPlayerGuess(String wordGuess) {
         if (!playGuesses.contains(wordGuess)) {
             playGuesses.add(wordGuess);
@@ -220,6 +222,8 @@ public class Jotto {
         }
         return false;
     }
+
+    // Writes updated word list back to file
     void updateWordList() {
         try {
             for (String guess : playGuesses) {
@@ -236,6 +240,8 @@ public class Jotto {
             System.out.println("Error writing to file.");
         }
     }
+
+    // Displays guesses and their Jotto scores
     private void displayGuessTable(ArrayList<String> guesses) {
 
         System.out.println("Guess\t\tScore");
